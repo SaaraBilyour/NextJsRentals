@@ -8,14 +8,12 @@ import { NextResponse } from "next/server";
 
 export default withAuth(
   function middleware(req) {
-    console.log(req.nextauth);
     if (
       ((req.nextUrl.pathname === "/admin") ||
         (req.nextUrl.pathname === "/admin/rentals") ||
         (req.nextUrl.pathname === "/admin/users")) &&
       req.nextauth.token?.role !== "ADMIN"
     ) {
-      console.log(req.nextauth.token?.role)
       return new NextResponse("Vous n'êtes pas autorisé!");
     }
   },

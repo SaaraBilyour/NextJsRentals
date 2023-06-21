@@ -1,20 +1,38 @@
-import React from 'react';
-import { getListing } from '@/app/libs/admin'
-import { Listing } from '@/app/types/models'
+"use client";
+import React, { useEffect, useState } from 'react';
+import { Listing } from '@/app/types/models';
 
-async function fetchListing(id: string): Promise<Listing> {
-  const response = await getListing(id);
-
-    if (!response) {
-    throw new Error(`l'annonce :${id} est introuvable `);
-  }
-  return response;
+interface ListingDetailsProps {
+  id: any;
 }
 
-const ListingDetails = async (id:any) => {
-  const listing: Listing = await fetchListing(id);
+const ListingDetails = ({ id }: ListingDetailsProps) => {
+  const [listing, setListing] = useState<Listing | null>(null);
 
-  return (
+  useEffect(() => {
+    const fetchListing = async () => {
+    try {
+      const response = await fetch(`/api/admin/listings/${id}`, {
+        method: "GET"
+      });
+      if (response.ok) {
+        const listing = await response.json();
+        setListing(listing); 
+      }
+    }
+    catch (error: any) {
+    console.log(error);
+    }
+    };
+
+    fetchListing();
+  }, [id]);
+
+  if (!listing) {
+    return <div className="py-2 px-4 text-indigo-500 font-semibold">Loading ...</div>;
+  }
+
+return (
     <div className="container mx-auto px-4">
       <h2 className="text-2xl font-bold text-indigo-500 mb-4">{listing?.title}</h2>
       <table className="min-w-full bg-white rounded-lg overflow-hidden shadow-md">

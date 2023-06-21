@@ -1,19 +1,37 @@
-import React from 'react';
-import { getUser } from '@/app/libs/admin'
-import  client   from '@/app/libs/prismadb'
-import { User, Role as CustomRole  } from '@/app/types/models'
+"use client";
+import React, { useEffect, useState } from 'react';
+import { User } from '@/app/types/models';
 
-async function fetchUser(id: string): Promise<User> { 
-  const user = await getUser(id);
-    if (!user) {
-      throw new Error(`l'annonce :${id} est introuvable `);
-  }
-  return user;
+interface UserDetailsProps {
+  id: any;
 }
 
-const UserDetails = async (id:any) => {
-  const user = await fetchUser(id);
-  
+const UserDetails = ({ id }: UserDetailsProps) => {
+  const [user, setUser] = useState<User | null>(null);
+
+  useEffect(() => {
+    const fetchListing = async () => {
+    try {
+      const response = await fetch(`/api/admin/users/${id}`, {
+        method: "GET"
+      });
+      if (response.ok) {
+        const listing = await response.json();
+        setUser(listing); 
+      }
+    }
+    catch (error: any) {
+    console.log(error);
+    }
+    };
+
+    fetchListing();
+  }, [id]);
+
+  if (!user) {
+    return <div className="py-2 px-4 text-indigo-500 font-semibold">Loading ... </div>;
+  }
+
   return (
     <div className="container mx-auto px-4">
       <h2 className="text-2xl font-bold text-indigo-500 mb-4">Informations utilisateur</h2>

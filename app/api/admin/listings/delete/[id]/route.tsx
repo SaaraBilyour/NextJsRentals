@@ -7,8 +7,8 @@ export const DELETE = async (request:NextApiRequest, { params }: { params: any }
   try {
       const id = params.id ;  
     const listing = await prisma.listing.delete({ where: { id } });
-    const users = await prisma.listing.findMany();
-      return response.status(200).json({ message: "Listing deleted successfully" });
+    const refresh = await prisma.listing.findMany();
+      return new Response(JSON.stringify(listing), { status: 200 })
     } catch (error) {
       return response.status(500).json({ message: "Error deleting listing" });
     }

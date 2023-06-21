@@ -6,7 +6,7 @@ import { redirect } from "next/dist/server/api-utils";
 
 export const DELETE = async (request:NextApiRequest, { params }: { params: any }, response:NextApiResponse) => {
   try {
-      const id = params.id ;  
+    const id = params.id ;  
     const user = await prisma.user.delete({ where: { id } });
     const users = await prisma.user.findMany();
     return new Response(JSON.stringify(user), { status: 200 })
