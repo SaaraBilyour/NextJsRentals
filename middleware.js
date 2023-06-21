@@ -13,8 +13,9 @@ export default withAuth(
       ((req.nextUrl.pathname === "/admin") ||
         (req.nextUrl.pathname === "/admin/rentals") ||
         (req.nextUrl.pathname === "/admin/users")) &&
-      req.nextauth.token?.role !== "admin"
+      req.nextauth.token?.role !== "ADMIN"
     ) {
+      console.log(req.nextauth.token?.role)
       return new NextResponse("Vous n'êtes pas autorisé!");
     }
   },
