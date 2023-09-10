@@ -27,7 +27,7 @@ interface ListingInfoProps {
     category: {
         icon: IconType;
         label: string;
-        color: string
+        //color: string
         description: string;
     } | undefined;
     locationValue: string;
