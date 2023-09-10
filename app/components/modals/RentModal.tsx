@@ -162,7 +162,7 @@ const RentModal = () => {
                               selected={category === item.label}
                               label={item.label}
                               icon={item.icon}
-                             // color={item.color}
+                              //color={item.color}
                             />
                         </div>
                         ))}
