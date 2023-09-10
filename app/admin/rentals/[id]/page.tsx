@@ -2,7 +2,7 @@
 import React from 'react'
 import Link from 'next/link'
 import ListingDetails from '../../../components/admin/ListingDetails'
-import DeleteListing from '@/app/components/admin/DeleteListing'
+import DeleteListing from '../../../components/admin/DeleteListing'
 
 interface InputProps {
   params: {

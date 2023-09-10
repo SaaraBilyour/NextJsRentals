@@ -1,7 +1,5 @@
 import prisma from './prismadb'
-import { NextResponse } from 'next/server';
-
-
+export const dynamic = 'force-dynamic'
 // lister tout logements
 export const getAllListings = async() => {
   const listings = await prisma.listing.findMany({});
@@ -63,8 +61,6 @@ export const deleteUser = async(id:any) => {
   })
   return user
 }
-
-
 
 
 export default {

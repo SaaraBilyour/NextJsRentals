@@ -1,9 +1,9 @@
 
 import React from 'react'
 import Link from 'next/link'
-import UserDetails from '@/app/components/admin/UserDetails'
-import DeleteUser from '@/app/components/admin/DeleteUser'
-import ChangeRole from '@/app/components/admin/ChangeRole'
+import UserDetails from '../../../components/admin/UserDetails'
+import DeleteUser from '../../../components/admin/DeleteUser'
+import ChangeRole from '../../../components/admin/ChangeRole'
 
 interface InputProps {
   params: {
