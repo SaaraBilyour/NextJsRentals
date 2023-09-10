@@ -6,6 +6,7 @@ import Logo from "./Logo";
 import UserMenu from "./UserMenu";
 import { SafeUser } from "@/app/types";
 import Typo from "./Typo";
+// import { BsSearch } from "react-icons/Bs";
 
 interface NavbarProps {
     currentUser?: SafeUser | null;
@@ -16,15 +17,15 @@ const Navbar: React.FC<NavbarProps> = ({
     currentUser,
 }) => {
   console.log({ currentUser });
+  
+  return (
+      <>
 
-    return (
-        <div className=" fixed w-full bg-gradient-to-r from-yellow-200 via-cyan-200 to-sky-500 z-10 shadow-sm">
-             <div 
-             className="
-             py-4
-             border-b [1px]
-             "
-             >
+      <div className=" fixed w-full shadow-lg bg-sky-900 mt-16 p-1 z-10">
+        <Categories />
+      </div>
+
+              <div className=" fixed w-full shadow-lg  bg-gradient-to-b from-teal-200 to-blue-100 z-10">
             <Container>
               <div 
               className="
@@ -32,21 +33,19 @@ const Navbar: React.FC<NavbarProps> = ({
               flex-row
               items-center
               justify-between
-              gap-3
+              gap-1
               md:gap-0
               ">
-                <Logo/>
-
-                <Typo />
-                
-                <UserMenu currentUser={currentUser} />
-
-              </div>
-            </Container>
-
-             </div>
-             <Categories />
-        </div>
+            <Logo />   
+            <div className="flex items-center bg-white rounded-full shadow-sm">
+            <input type="text" placeholder="Search" className="rounded-full w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none"/> 
+            <button className="bg-sky-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full ml-2">S</button>
+            </div>
+            <UserMenu currentUser={currentUser} />
+          </div>
+        </Container>
+      </div>
+      </>
     );
 }
 export default Navbar;

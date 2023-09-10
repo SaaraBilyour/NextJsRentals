@@ -153,7 +153,7 @@ const LoginModal = () => {
                     <div
                        onClick={toggle} // on ferme la modal
                        className='
-                       text-yellow-100
+                       text-sky-900
                        cursor-pointer
                        hover:underline
                        '

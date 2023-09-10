@@ -1,6 +1,4 @@
-'use client'; // Une directive pour indiquer que ce code est destiné à être exécuté côté client.
-
-// Importation des hooks et des modules nécessaires depuis React et Next.js.
+'use client'; 
 import { useSearchParams, useRouter } from "next/navigation";
 import { useCallback } from "react";
 import qs from "query-string";
@@ -11,20 +9,16 @@ import { IconType } from "react-icons";
 interface CategoryBoxProps {
     icon: IconType; // Icone à afficher
     label: string; // Texte à afficher
-    selected?: boolean; // Indique si la catégorie est actuellement sélectionnée
-    color?: string; // Couleur de l'icône
+    selected?: boolean; 
 }
 
 const CategoryBox: React.FC<CategoryBoxProps> = ({
     icon: Icon,
     label,
-    color,
     selected,
 }) => {
-    // Utilisation des hooks pour obtenir les informations de navigation et les paramètres de recherche actuels de l'URL
-    const router = useRouter(); // Hook pour obtenir les informations de navigation
-    const params = useSearchParams(); // Hook pour obtenir les paramètres de recherche actuels de l'URL
-
+    const router = useRouter(); 
+    const params = useSearchParams(); 
     // Création d'une fonction pour gérer le clic sur le composant
     const handleClick = useCallback(() => {
         let currentQuery = {};
@@ -54,29 +48,25 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
         // Naviguer vers l'URL mise à jour
         router.push(url);
     }, [label, params, router]);
-    return (
-        <div
-            onClick={handleClick}
-            className={`
+    return (          
+            <div className="text-sm font-medium text-slate-500">
+                <span className={`
             flex
-            flex-col
+            flex-row
             items-center
             justify-center
-            gap-2
-            p-3
-            border-b-2
-            hover:text-neutral-800
+            gap-1
+            px-5
+            hover:text-amber-100
             transition
             cursor-pointer
             ${selected ? "border-b-neutral-800" : "border-transparent"}
-            ${selected ? "text-neutral-800" : "text-neutral-500"}
-            `}
-        >
-            <Icon size={26} color={color} />   
-            <div className="text-sm font-medium">
-                {label}
-                </div>   
-        </div>
+            ${selected ? "text-amber-100" : "text-orange-200"}
+            `} onClick={handleClick}>
+                <Icon  size={18} color={'bg-gray-600'} />{label}
+                </span>
+            </div>   
+
     );
 }
 

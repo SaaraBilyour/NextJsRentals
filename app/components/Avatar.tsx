@@ -20,7 +20,7 @@ const Avatar: React.FC<AvatarProps> = ({
           height ="30"
           width="30"
           alt="Avatar"
-          src={src || "/images/aa4.png"}
+          src={src || "/images/avatarSky.jpg"}
           />
     );
 }

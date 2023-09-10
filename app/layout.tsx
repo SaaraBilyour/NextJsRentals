@@ -13,7 +13,7 @@ import AdminNavbar from "./components/admin/AdminNavbar"
 
 // Cela permet de le titre de la page:
 export const metadata = {
-    title: "Casas",
+    title: "Canda",
     description: "Agenge de location et reservation de maisons",
 }
 
@@ -46,7 +46,7 @@ export default async function RootLayout ({
     } else {
         return (
             <html lang="en">
-                <body className="{font.className">
+                <body className="bg-slate-200">
                     <ClientOnly>
                         <ToasterProvider />
                         <RentModal />
@@ -54,10 +54,8 @@ export default async function RootLayout ({
                         <RegisterModal />
                         <Navbar currentUser={currentUser} />
                     </ClientOnly>
-                    <div className="pd-20 pt-28">
+                    <div className="pd-2 pt-3">
                         {children}
-                        <script src="//code.tidio.co/2sck1ygcclzvbvq41vt5wvb07kyhld4z.js" async>
-                        </script>
                     </div>
                 </body>
             </html>

@@ -30,7 +30,6 @@ const Home = async ({ searchParams }: HomeProps) => {
     
       <ClientOnly>
         <Container>
-        <Carousel />
           <div className="
           pt-24
           grid
@@ -56,7 +55,6 @@ const Home = async ({ searchParams }: HomeProps) => {
           </Container>
           <Footer />
         </ClientOnly>
-    
   )
 }
 
