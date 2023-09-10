@@ -1,4 +1,4 @@
-import countries from 'world-countries' // npm install world-countries
+import countries from "../../node_modules/world-countries/countries.json" // npm install world-countries
 
 const formattedCountries = countries.map((country) => ({
     label: country.name.common,
@@ -7,7 +7,7 @@ const formattedCountries = countries.map((country) => ({
     latlng: country.latlng,
     region: country.region,
 }))
-
+console.log(countries)
 const useCountries = () => {
     const getAll = () => formattedCountries; 
 
