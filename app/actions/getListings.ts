@@ -1,5 +1,5 @@
 import prisma from "@/app/libs/prismadb"; // Importe le module Prisma pour interagir avec la base de données
-export const dynamic = 'auto'
+export const dynamic = 'force-dynamic';
 export interface IListingsParams {
   userId?: string;
   guestCount?: number;
