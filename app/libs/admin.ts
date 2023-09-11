@@ -1,5 +1,5 @@
 import prisma from './prismadb'
-export const dynamic = 'force-dynamic'
+export const dynamic = 'force-dynamic';
 
 // lister tout logements
 export const getAllListings = async() => {

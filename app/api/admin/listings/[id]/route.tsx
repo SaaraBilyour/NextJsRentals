@@ -1,6 +1,6 @@
 
 import { NextApiRequest, NextApiResponse } from 'next';
-import prisma from "@/app/libs/prismadb";
+import prisma from "../../../../libs/prismadb";
 import { NextResponse } from 'next/server';
 
 export const GET = async (request:NextApiRequest, { params }: { params: any }, response:NextApiResponse) => {

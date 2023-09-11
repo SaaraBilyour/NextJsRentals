@@ -1,4 +1,4 @@
-import prisma from "@/app/libs/prismadb"; // Importe le module Prisma pour interagir avec la base de données
+import prisma from "../libs/prismadb"; // Importe le module Prisma pour interagir avec la base de données
 import getCurrentUser from "./getCurrentsUser"; // Importe la fonction getCurrentUser depuis le fichier local
 
 // Fonction principale pour récupérer la liste des favoris

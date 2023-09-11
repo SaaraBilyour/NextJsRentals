@@ -1,7 +1,7 @@
 // Importation des modules nécessaires
 import { getServerSession } from "next-auth/next"; // Module pour récupérer la session côté serveur
-import { authOptions } from "@/pages/api/auth/[...nextauth]"; // Options d'authentification
-import prisma from "@/app/libs/prismadb"; // Prisma ORM pour interagir avec la base de données
+import { authOptions } from "../../pages/api/auth/[...nextauth]"; // Options d'authentification
+import prisma from "../libs/prismadb"; // Prisma ORM pour interagir avec la base de données
 
 // Fonction pour obtenir la session de l'utilisateur
 export async function getSession() {
