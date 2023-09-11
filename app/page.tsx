@@ -5,7 +5,7 @@ import Container from "./components/Container";
 import EmptyState from "./components/EmptyState";
 import Footer from "./components/Footer";
 import ListingCard from "./components/listings/ListingCard";
-
+export const dynamic = 'force-dynamic';
 import dotenv from 'dotenv';
 
 interface HomeProps {

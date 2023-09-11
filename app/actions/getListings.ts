@@ -12,6 +12,7 @@ export interface IListingsParams {
 }
 
 // Fonction pour récupérer les annonces
+export const dynamic = 'force-dynamic';
 export default async function getListings(params: IListingsParams) {
   try {
     const {
