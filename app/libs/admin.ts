@@ -1,5 +1,6 @@
 import prisma from './prismadb'
 export const dynamic = 'force-dynamic'
+
 // lister tout logements
 export const getAllListings = async() => {
   const listings = await prisma.listing.findMany({});
